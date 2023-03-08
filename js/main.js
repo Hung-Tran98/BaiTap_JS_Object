@@ -35,7 +35,6 @@ function getLocalStorage() {
 }
 getLocalStorage();
 function addEmployee() {
-  //Lấy giá trị từ form
   var account = getELE("tknv").value;
   var fullName = getELE("name").value;
   var email = getELE("email").value;
@@ -44,9 +43,7 @@ function addEmployee() {
   var salary = getELE("luongCB").value;
   var position = getELE("chucvu").value;
   var workTime = getELE("gioLam").value;
-  //TODO : Validation
   var isValid = true;
-
   isValid &=
     validation.checkEmpty(account, "tbTKNV", "Tài khoản không để trống!") &&
     validation.checkAccount(
@@ -60,33 +57,26 @@ function addEmployee() {
       "Tài khoản không được trùng",
       listEmpl.ArrayEmpl
     );
-
   isValid &=
     validation.checkEmpty(fullName, "tbTen", "Tên không để trống") &&
     validation.checkName(fullName, "tbTen", "Tên phải là chữ");
-
   isValid &=
     validation.checkEmpty(email, "tbEmail", "Email không để trống") &&
     validation.checkEmail(email, "tbEmail", "Email phải đúng định dạng");
-
   isValid &=
     validation.checkEmpty(pass, "tbMatKhau", "Mật khẩu không để trống") &&
     validation.checkPass(pass, "tbMatKhau", "Mật khẩu phải đúng định dạng");
-
   isValid &=
     validation.checkEmpty(workDate, "tbNgay", "Ngày không để trống") &&
     validation.checkDate(workDate, "tbNgay", "Ngày phải đúng định dạng");
-
   isValid &=
     validation.checkEmpty(salary, "tbLuongCB", "Lương không để trống") &&
     validation.checkSalary(salary, "tbLuongCB", "1 triệu <= Lương <= 20 triệu");
-
   isValid &= validation.checkSelect(
     "chucvu",
     "tbChucVu",
     "Chức vụ chưa hợp lệ"
   );
-
   isValid &=
     validation.checkEmpty(workTime, "tbGiolam", "Thời gian không để trống") &&
     validation.checkTime(
@@ -118,7 +108,6 @@ function deleteEmployee(account) {
   setLocalStorage(listEmpl.ArrayEmpl);
   getLocalStorage();
 }
-
 function showDentail(account) {
   var index = listEmpl.findIndexEmpl(account);
   if (index != -1) {
@@ -150,9 +139,7 @@ function updateEmployee() {
   var salary = getELE("luongCB").value;
   var position = getELE("chucvu").value;
   var workTime = getELE("gioLam").value;
-
   var isValid = true;
-
   isValid &=
     validation.checkEmpty(account, "tbTKNV", "Tài khoản không để trống!") &&
     validation.checkAccount(
@@ -160,33 +147,26 @@ function updateEmployee() {
       "tbTKNV",
       "Tài khoản không nhiều hơn 4-6 ký số!"
     );
-
   isValid &=
     validation.checkEmpty(fullName, "tbTen", "Tên không để trống") &&
     validation.checkName(fullName, "tbTen", "Tên phải là chữ");
-
   isValid &=
     validation.checkEmpty(email, "tbEmail", "Email không để trống") &&
     validation.checkEmail(email, "tbEmail", "Email phải đúng định dạng");
-
   isValid &=
     validation.checkEmpty(pass, "tbMatKhau", "Mật khẩu không để trống") &&
     validation.checkPass(pass, "tbMatKhau", "Mật khẩu phải đúng định dạng");
-
   isValid &=
     validation.checkEmpty(workDate, "tbNgay", "Ngày không để trống") &&
     validation.checkDate(workDate, "tbNgay", "Ngày phải đúng định dạng");
-
   isValid &=
     validation.checkEmpty(salary, "tbLuongCB", "Lương không để trống") &&
     validation.checkSalary(salary, "tbLuongCB", "1 triệu <= Lương <= 20 triệu");
-
   isValid &= validation.checkSelect(
     "chucvu",
     "tbChucVu",
     "Chức vụ chưa hợp lệ"
   );
-
   isValid &=
     validation.checkEmpty(workTime, "tbGiolam", "Thời gian không để trống") &&
     validation.checkTime(
@@ -194,7 +174,6 @@ function updateEmployee() {
       "tbGiolam",
       "80 giờ <= Thời gian <= 200 giờ"
     );
-
   if (isValid) {
     var empl = new Employee(
       account,
@@ -214,22 +193,17 @@ function updateEmployee() {
   }
 }
 getELE("btnCapNhat").onclick = updateEmployee;
-
 function search() {
   var keyword = getELE("searchName").value;
   var arrayResult = listEmpl.searchName(keyword);
-
   showTable(arrayResult);
 }
 getELE("btnTimNV").onclick = search;
-
 getELE("searchName").onkeyup = function () {
   var keyword = getELE("searchName").value;
   var arrayResult = listEmpl.searchName(keyword);
-
   showTable(arrayResult);
 };
-
 getELE("btnThem").onclick = function () {
   getELE("tknv").value = "";
   getELE("tknv").disabled = false;
@@ -238,7 +212,6 @@ getELE("btnThem").onclick = function () {
   getELE("password").value = "";
   getELE("datepicker").value = "";
   getELE("luongCB").value = 0;
-  // getELE("chucvu").defaultSelected;
   getELE("chucvu").selectedIndex = 0;
   getELE("gioLam").value = 0;
   getELE("tbTKNV").innerHTML = "";

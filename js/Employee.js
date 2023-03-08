@@ -1,5 +1,3 @@
-// Từ khóa function (ES5)
-
 function Employee(
   account,
   fullName,
@@ -10,7 +8,6 @@ function Employee(
   position,
   workTime
 ) {
-  //Thuộc tính
   this.account = account;
   this.fullName = fullName;
   this.email = email;
@@ -21,7 +18,6 @@ function Employee(
   this.workTime = workTime;
   this.grossSalary = 0;
   this.employeeRating = "";
-  //Phương thức
   this.payRoll = function () {
     if(this.position == "Sếp"){
     this.grossSalary = this.salary * 3;
