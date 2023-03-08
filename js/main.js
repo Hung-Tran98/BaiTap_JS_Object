@@ -120,14 +120,7 @@ function showDentail(account) {
     getELE("luongCB").value = listEmpl.ArrayEmpl[index].salary;
     getELE("chucvu").value = listEmpl.ArrayEmpl[index].position;
     getELE("gioLam").value = listEmpl.ArrayEmpl[index].workTime;
-    getELE("tbTKNV").innerHTML = "";
-    getELE("tbTen").innerHTML = "";
-    getELE("tbEmail").innerHTML = "";
-    getELE("tbMatKhau").innerHTML = "";
-    getELE("tbNgay").innerHTML = "";
-    getELE("tbLuongCB").innerHTML = "";
-    getELE("tbChucVu").innerHTML = "";
-    getELE("tbGiolam").innerHTML = "";
+    clear("tbTKNV","tbTen","tbEmail","tbMatKhau","tbNgay","tbLuongCB","tbChucVu","tbGiolam");
   }
 }
 function updateEmployee() {
@@ -212,14 +205,18 @@ getELE("btnThem").onclick = function () {
   getELE("password").value = "";
   getELE("datepicker").value = "";
   getELE("luongCB").value = 0;
+  // getELE("chucvu").defaultSelected;
   getELE("chucvu").selectedIndex = 0;
   getELE("gioLam").value = 0;
-  getELE("tbTKNV").innerHTML = "";
-  getELE("tbTen").innerHTML = "";
-  getELE("tbEmail").innerHTML = "";
-  getELE("tbMatKhau").innerHTML = "";
-  getELE("tbNgay").innerHTML = "";
-  getELE("tbLuongCB").innerHTML = "";
-  getELE("tbChucVu").innerHTML = "";
-  getELE("tbGiolam").innerHTML = "";
+  clear("tbTKNV","tbTen","tbEmail","tbMatKhau","tbNgay","tbLuongCB","tbChucVu","tbGiolam");
 };
+function clear(tbTKNV,tbTen,tbEmail,tbMatKhau,tbNgay,tbLuongCB,tbChucVu,tbGiolam){
+  getELE(tbTKNV).innerHTML = "";
+  getELE(tbTen).innerHTML = "";
+  getELE(tbEmail).innerHTML = "";
+  getELE(tbMatKhau).innerHTML = "";
+  getELE(tbNgay).innerHTML = "";
+  getELE(tbLuongCB).innerHTML = "";
+  getELE(tbChucVu).innerHTML = "";
+  getELE(tbGiolam).innerHTML = "";
+}
