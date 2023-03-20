@@ -111,6 +111,8 @@ function deleteEmployee(account) {
   getLocalStorage();
 }
 function showDentail(account) {
+  getELE("btnThemNV").style.display = 'none';
+  getELE("btnCapNhat").style.display = 'block';
   var index = listEmpl.findIndexEmpl(account);
   if (index != -1) {
     getELE("tknv").value = listEmpl.ArrayEmpl[index].account;
@@ -212,6 +214,8 @@ getELE("searchName").onkeyup = function () {
   showTable(arrayResult);
 };
 getELE("btnThem").onclick = function () {
+  getELE("btnCapNhat").style.display = 'none';
+  getELE("btnThemNV").style.display = 'block';
   getELE("formNV").reset();
   clear(
     "tbTKNV",
