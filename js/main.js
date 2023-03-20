@@ -216,6 +216,7 @@ getELE("searchName").onkeyup = function () {
 getELE("btnThem").onclick = function () {
   getELE("btnCapNhat").style.display = 'none';
   getELE("btnThemNV").style.display = 'block';
+  getELE("tknv").disabled = false;
   getELE("formNV").reset();
   clear(
     "tbTKNV",
